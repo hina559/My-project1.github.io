@@ -1,0 +1,83 @@
+{% extends "dashboard/doctor/base_doctor.html" %} {% block dashboard_content %}
+
+<div class="bg-white rounded-2xl shadow-lg p-6">
+  <h2 class="text-3xl font-bold text-blue-800 mb-6 flex items-center gap-3">
+    <span class="text-4xl">📋</span> My Cases
+  </h2>
+
+  {% if cases_count == 0 %}
+  <div class="text-center py-16">
+    <div class="text-8xl mb-6">📂</div>
+    <p class="text-blue-700 text-2xl mb-2 font-semibold">
+      No cases assigned yet
+    </p>
+    <p class="text-blue-500">Once a case is assigned, it will appear here.</p>
+  </div>
+  {% else %}
+  <div class="overflow-x-auto">
+    <table class="min-w-full divide-y divide-blue-200 text-center">
+      <thead class="bg-blue-50">
+        <tr>
+          <th
+            class="px-6 py-3 text-xs font-medium text-blue-700 uppercase tracking-wider"
+          >
+            Case ID
+          </th>
+          <th
+            class="px-6 py-3 text-xs font-medium text-blue-700 uppercase tracking-wider"
+          >
+            Farmer
+          </th>
+          <th
+            class="px-6 py-3 text-xs font-medium text-blue-700 uppercase tracking-wider"
+          >
+            Disease
+          </th>
+          <th
+            class="px-6 py-3 text-xs font-medium text-blue-700 uppercase tracking-wider"
+          >
+            Created
+          </th>
+          <th
+            class="px-6 py-3 text-xs font-medium text-blue-700 uppercase tracking-wider"
+          >
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-blue-200">
+        {% for case in cases %}
+        <tr class="hover:bg-blue-50 transition-all">
+          <td class="px-6 py-4 text-sm font-medium text-blue-900 align-middle">
+            #{{ case.id }}
+          </td>
+          <td class="px-6 py-4 text-sm text-blue-600 align-middle">
+            {{ case.farmer.first_name }} {{ case.farmer.last_name }}
+          </td>
+          <td class="px-6 py-4 text-sm text-blue-600 align-middle">
+            {{ case.analysis.disease_name }}
+          </td>
+          <td class="px-6 py-4 text-sm text-blue-600 align-middle">
+            {{ case.created_at|date:"M d, Y" }}
+          </td>
+          <td class="px-6 py-4 align-middle">
+            <a
+              href="{% url 'doctor_case_detail' case.id %}"
+              class="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+            >
+              🔍 View
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-6 text-center text-blue-700 font-semibold text-lg">
+    Total: {{ cases_count }} case{{ cases_count|pluralize }}
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

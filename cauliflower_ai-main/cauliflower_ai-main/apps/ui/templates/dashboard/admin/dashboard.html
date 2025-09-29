@@ -1,0 +1,59 @@
+{% extends "dashboard/admin/base_admin.html" %} {% block dashboard_content %}
+
+<div class="flex flex-col items-center mb-8">
+  <span class="text-7xl mb-2">🛡️</span>
+  <h1 class="text-3xl font-extrabold text-blue-800 mb-2">
+    Welcome, {{ user.first_name }}!
+  </h1>
+  <p class="text-lg text-blue-700 text-center">
+    Manage users, doctors, and system activity from one place.
+  </p>
+</div>
+
+<!-- Admin-Specific Stats -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+  <div class="bg-blue-50 rounded-2xl shadow p-6 flex flex-col items-center">
+    <span class="text-4xl mb-2">🧑‍🤝‍🧑</span>
+    <div class="text-lg font-bold text-blue-800">Total Users</div>
+    <div class="text-2xl text-blue-900 mt-1 font-mono">{{ users }}</div>
+  </div>
+  <div class="bg-blue-50 rounded-2xl shadow p-6 flex flex-col items-center">
+    <span class="text-4xl mb-2">👨‍⚕️</span>
+    <div class="text-lg font-bold text-blue-800">Total Doctors</div>
+    <div class="text-2xl text-blue-900 mt-1 font-mono">{{ doctors }}</div>
+  </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="bg-white rounded-2xl shadow p-6">
+  <h2 class="text-xl font-bold text-blue-800 mb-4 flex items-center gap-2">
+    <span>⚡</span> Quick Actions
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <a
+      href="{% url 'manage_farmers' %}"
+      class="flex items-center gap-3 p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition"
+    >
+      <span class="text-2xl">👨‍🌾</span>
+      <div>
+        <div class="font-semibold text-blue-800">Manage Farmers</div>
+        <div class="text-sm text-blue-600">
+          View, update, or delete farmer accounts
+        </div>
+      </div>
+    </a>
+
+    <a
+      href="{% url 'admin_profile' %}"
+      class="flex items-center gap-3 p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition"
+    >
+      <span class="text-2xl">👤</span>
+      <div>
+        <div class="font-semibold text-blue-800">Update Profile</div>
+        <div class="text-sm text-blue-600">Manage your information</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+{% endblock %}

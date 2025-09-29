@@ -1,0 +1,80 @@
+{% extends "dashboard/doctor/base_doctor.html" %} {% block dashboard_content %}
+
+<div class="flex flex-col items-center mb-8">
+  <span class="text-7xl mb-2">👨‍⚕️</span>
+  <h1 class="text-3xl font-extrabold text-blue-800 mb-2">
+    Welcome, Dr. {{ user.first_name }}!
+  </h1>
+  <p class="text-lg text-blue-700 text-center">
+    Review pending cases and provide expert recommendations.
+  </p>
+</div>
+
+<!-- Doctor-Specific Stats -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+  <div class="bg-blue-50 rounded-2xl shadow p-6 flex flex-col items-center">
+    <span class="text-4xl mb-2">💡</span>
+    <div class="text-lg font-bold text-blue-800">Total Suggestions</div>
+    <div class="text-2xl text-blue-900 mt-1 font-mono">
+      {{ stats.total_suggestions }}
+    </div>
+  </div>
+  <div class="bg-blue-50 rounded-2xl shadow p-6 flex flex-col items-center">
+    <span class="text-4xl mb-2">📋</span>
+    <div class="text-lg font-bold text-blue-800">Assigned Cases</div>
+    <div class="text-2xl text-blue-900 mt-1 font-mono">
+      {{ stats.assigned_cases }}
+    </div>
+  </div>
+  <div class="bg-blue-50 rounded-2xl shadow p-6 flex flex-col items-center">
+    <span class="text-4xl mb-2">📅</span>
+    <div class="text-lg font-bold text-blue-800">Upcoming Events</div>
+    <div class="text-2xl text-blue-900 mt-1 font-mono">
+      {{ stats.upcoming_events }}
+    </div>
+  </div>
+  <div class="bg-blue-50 rounded-2xl shadow p-6 flex flex-col items-center">
+    <span class="text-4xl mb-2">🔔</span>
+    <div class="text-lg font-bold text-blue-800">Notifications</div>
+    <div class="text-2xl text-blue-900 mt-1 font-mono">
+      {{ stats.total_notifications }}
+    </div>
+  </div>
+  <div class="bg-blue-50 rounded-2xl shadow p-6 flex flex-col items-center">
+    <span class="text-4xl mb-2">🔴</span>
+    <div class="text-lg font-bold text-blue-800">Unread</div>
+    <div class="text-2xl text-blue-900 mt-1 font-mono">
+      {{ stats.unread_notifications }}
+    </div>
+  </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="bg-white rounded-2xl shadow p-6">
+  <h2 class="text-xl font-bold text-blue-800 mb-4 flex items-center gap-2">
+    <span>⚡</span> Quick Actions
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <a
+      href="{% url 'doctor_suggest' %}"
+      class="flex items-center gap-3 p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition"
+    >
+      <span class="text-2xl">💡</span>
+      <div>
+        <div class="font-semibold text-blue-800">Create Suggestion</div>
+        <div class="text-sm text-blue-600">Add new general advice</div>
+      </div>
+    </a>
+    <a
+      href="{% url 'doctor_profile' %}"
+      class="flex items-center gap-3 p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition"
+    >
+      <span class="text-2xl">👤</span>
+      <div>
+        <div class="font-semibold text-blue-800">Update Profile</div>
+        <div class="text-sm text-blue-600">Manage your information</div>
+      </div>
+    </a>
+  </div>
+</div>
+{% include 'components/upcoming_events_modal.html' %} {% endblock %}

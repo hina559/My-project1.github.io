@@ -1,0 +1,118 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<div
+  class="min-h-screen flex items-center justify-center bg-blue-50 py-12 px-4"
+>
+  <div
+    class="max-w-6xl w-full bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col md:flex-row"
+  >
+    <!-- Sidebar -->
+    <aside
+      class="md:w-1/4 bg-gradient-to-br from-blue-50 via-white to-blue-100 flex flex-col justify-between p-8"
+    >
+      <div>
+        <div class="flex flex-col items-center mb-8">
+          <span class="text-6xl mb-2">👨‍⚕️</span>
+          <span class="text-xl font-bold text-blue-800">Doctor Panel</span>
+        </div>
+        <nav class="flex flex-col gap-4">
+          <a
+            href="{% url 'doctor_dashboard' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-blue-800 hover:bg-blue-100 transition text-lg"
+          >
+            <span>🏠</span> Dashboard
+          </a>
+          <a
+            href="{% url 'doctor_profile' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-blue-700 hover:bg-blue-100 transition text-lg"
+          >
+            <span>👤</span> Profile
+          </a>
+          <a
+            href="{% url 'doctor_suggest' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-blue-700 hover:bg-blue-100 transition text-lg"
+          >
+            <span>💡</span> Suggest
+          </a>
+          <a
+            href="{% url 'doctor_past_suggestions' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-blue-700 hover:bg-blue-100 transition text-lg"
+          >
+            <span>📊</span> Past Suggestions
+          </a>
+          <a
+            href="{% url 'doctor_cases_list' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-blue-700 hover:bg-blue-100 transition text-lg"
+          >
+            <span>📋</span> Cases
+          </a>
+          <a
+            href="{% url 'doctor_events' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-blue-700 hover:bg-blue-100 transition text-lg"
+          >
+            <span>📅</span> Events
+          </a>
+
+          <a
+            href="{% url 'doctor_notifications' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-blue-700 hover:bg-blue-100 transition text-lg"
+          >
+            <span>🔔</span> Notifications
+          </a>
+        </nav>
+      </div>
+      <a
+        href="{% url 'logout' %}"
+        class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-red-700 bg-red-100 hover:bg-red-200 transition text-lg mt-8 justify-center"
+      >
+        <span>🚪</span> Logout
+      </a>
+    </aside>
+    <!-- Main Content -->
+    <main class="md:w-3/4 flex flex-col p-8 overflow-y-auto">
+      <div class="w-full">
+        <!-- Approval Status Check -->
+        {% if user.doctor_profile.is_approved == False %}
+        <div
+          class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 rounded-lg"
+        >
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <svg
+                class="h-5 w-5 text-yellow-400"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="ml-3">
+              <h3 class="text-sm font-medium text-yellow-800">
+                Account Pending Approval
+              </h3>
+              <div class="mt-2 text-sm text-yellow-700">
+                <p>
+                  Your doctor account is currently pending admin approval. You
+                  can view your dashboard and profile, but you'll need approval
+                  to access case management, create suggestions, and other
+                  features.
+                </p>
+                <p class="mt-2 font-medium">
+                  Please contact the administrator for approval or wait for your
+                  account to be reviewed.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %} {% block dashboard_content %}
+        <!-- Page-specific content goes here -->
+        {% endblock %}
+      </div>
+    </main>
+  </div>
+</div>
+{% endblock %}

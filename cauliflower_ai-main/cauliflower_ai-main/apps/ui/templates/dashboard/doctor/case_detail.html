@@ -1,0 +1,149 @@
+{% extends "dashboard/doctor/base_doctor.html" %} {% block dashboard_content %}
+
+<div class="max-w-4xl mx-auto bg-white rounded-2xl shadow p-8">
+  <!-- Case Header -->
+  <div class="border-b border-blue-200 pb-6 mb-6">
+    <div class="flex justify-between items-start mb-4">
+      <h2 class="text-2xl font-bold text-blue-800 flex items-center gap-2">
+        <span>📋</span> Case #{{ case.id }}
+      </h2>
+      {% if case.status == 'resolved' %}
+      <span
+        class="px-3 py-1 text-sm font-medium rounded-full bg-blue-100 text-blue-800"
+      >
+        ✅ Resolved
+      </span>
+      {% endif %}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-blue-700">
+      <div>
+        <span class="font-semibold">Disease:</span>
+        {{ case.analysis.disease_name }}
+      </div>
+      <div>
+        <span class="font-semibold">Created:</span>
+        {{ case.created_at|date:"M d, Y" }}
+      </div>
+      {% if case.farmer_full_name %}
+      <div>
+        <span class="font-semibold">Farmer:</span>
+        {{ case.farmer_full_name }}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Case Image -->
+  <div class="bg-blue-50 rounded-lg p-4 mb-8">
+    {% if case.analysis.image %}
+    <div class="flex justify-center">
+      <img
+        src="{{ case.analysis.image.url }}"
+        alt="Plant Image for Case #{{ case.id }}"
+        class="max-w-full h-auto max-h-96 object-contain rounded-lg border border-blue-200 shadow-sm"
+      />
+    </div>
+    {% else %}
+    <div class="text-center py-8">
+      <div class="text-4xl mb-2">🌱</div>
+      <p class="text-blue-600">No image available for this case.</p>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- Case Description -->
+  <div class="mb-8">
+    <h3
+      class="text-lg font-semibold text-blue-800 mb-3 flex items-center gap-2"
+    >
+      <span>📝</span> Case Description
+    </h3>
+    <div class="bg-blue-50 rounded-lg p-4">
+      <p class="text-blue-700">{{ case.description }}</p>
+    </div>
+  </div>
+
+  <!-- Chat Section -->
+  {% if user.doctor_profile.is_approved %}
+  <div class="mb-8">
+    <h3
+      class="text-lg font-semibold text-blue-800 mb-4 flex items-center gap-2"
+    >
+      <span>💬</span> Chat with Farmer
+    </h3>
+
+    <div class="max-h-80 overflow-y-auto flex flex-col gap-2 mb-4">
+      {% for msg in messages_qs %}
+      <div
+        class="flex {% if msg.sender == request.user %}justify-end{% else %}justify-start{% endif %}"
+      >
+        <div
+          class="rounded-xl px-4 py-2 max-w-xs break-words {% if msg.sender == request.user %} bg-blue-600 text-white {% else %} bg-gray-200 text-gray-800 {% endif %}"
+        >
+          <p class="text-sm">{{ msg.message }}</p>
+          <span class="text-xs block mt-1 text-gray-400">
+            {{ msg.created_at|date:"M d, Y H:i" }}
+          </span>
+        </div>
+      </div>
+      {% empty %}
+      <p class="text-gray-500 text-sm">
+        No messages yet. Start the conversation below.
+      </p>
+      {% endfor %}
+    </div>
+
+    <form method="POST" class="flex gap-2 mt-2">
+      {% csrf_token %}
+      <textarea
+        name="message"
+        rows="2"
+        placeholder="Type your message..."
+        class="flex-1 p-2 border border-blue-200 rounded-lg"
+      ></textarea>
+      <button
+        type="submit"
+        class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition font-medium"
+      >
+        Send
+      </button>
+    </form>
+  </div>
+  {% else %}
+  <!-- Disabled Chat State -->
+  <div class="mb-8">
+    <div class="bg-gray-50 rounded-lg p-6 text-center">
+      <div class="text-4xl mb-3">🔒</div>
+      <h3 class="text-lg font-semibold text-gray-600 mb-2">
+        Chat Access Restricted
+      </h3>
+      <p class="text-gray-500 mb-4">
+        You need admin approval to chat with farmers and access case management
+        features.
+      </p>
+      <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+        <p class="text-yellow-800 text-sm">
+          <strong>Status:</strong> Pending Admin Approval
+        </p>
+        <p class="text-yellow-700 text-xs mt-1">
+          Please contact the administrator or wait for your account to be
+          reviewed.
+        </p>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Back Button -->
+  <div class="mt-8 text-center">
+    <a
+      href="{% url 'doctor_cases_list' %}"
+      class="text-blue-600 hover:text-blue-800 flex items-center justify-center gap-2"
+    >
+      <span>←</span> Back to All Cases
+    </a>
+  </div>
+</div>
+
+{% endblock %}

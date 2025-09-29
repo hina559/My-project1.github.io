@@ -1,0 +1,352 @@
+{% extends "base.html" %} {% load static %} {% block title %}Welcome -
+Cauliflower AI{% endblock %} {% block content %}
+
+<!-- 💡 Hero Section -->
+<section class="relative text-center py-20 px-4 bg-green-50 overflow-hidden">
+  <div
+    class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10"
+  >
+    <!-- Left: Text -->
+    <div class="md:w-1/2 text-left">
+      <h1
+        class="text-4xl md:text-5xl font-extrabold text-green-800 leading-tight mb-4"
+      >
+        Diagnose Cauliflower Diseases Instantly with AI
+      </h1>
+      <p class="text-lg text-gray-700 mb-6">
+        CauliScan AI helps farmers detect diseases in cauliflower leaves, stems,
+        and florets using AI-powered image analysis. Get instant results and
+        expert suggestions for treatment.
+      </p>
+      <div class="flex gap-4 flex-wrap">
+        <a
+          href="/register/farmer"
+          class="px-6 py-3 rounded-full bg-green-700 text-white hover:bg-green-800 transition font-semibold"
+        >
+          Register as Farmer
+        </a>
+        <a
+          href="/register/doctor"
+          class="px-6 py-3 rounded-full border border-green-700 text-green-700 hover:bg-green-100 transition font-semibold"
+        >
+          Register as Doctor
+        </a>
+        <a
+          href="/login"
+          class="px-6 py-3 rounded-full border border-gray-400 text-gray-800 hover:bg-gray-200 transition font-semibold"
+        >
+          Already have an account? Login
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Image -->
+    <div class="md:w-1/2 flex justify-center">
+      <div class="relative">
+        <img
+          src="{% static 'image/Logo.png' %}"
+          alt="Hero Logo"
+          class="w-72 md:w-96 object-contain mx-auto drop-shadow-xl"
+        />
+        <span
+          class="absolute bottom-0 right-0 bg-green-100 text-green-700 text-sm px-3 py-1 rounded-tl-lg font-medium"
+        >
+          AI Powered
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 👨‍🌾 Farmer CTA Section -->
+<section class="py-16 px-4 max-w-4xl mx-auto text-center">
+  <div class="bg-white rounded-3xl shadow-lg p-10 flex flex-col items-center">
+    <h2 class="text-3xl font-bold text-green-800 mb-4">Are You a Farmer?</h2>
+    <p class="text-green-700 mb-6 text-lg">
+      Join CauliScan AI to diagnose your crops, get instant disease detection,
+      and receive expert advice. Protect your harvest and boost your yield with
+      technology designed for you.
+    </p>
+    <a
+      href="/register/farmer"
+      class="px-8 py-3 rounded-full bg-green-700 text-white hover:bg-green-800 transition font-semibold shadow mb-2"
+      >Join as a Farmer</a
+    >
+    <span class="text-sm text-gray-500"
+      >Empowering farmers with AI for healthier crops and better outcomes.</span
+    >
+  </div>
+</section>
+
+<!-- 👨‍⚕️ Doctor CTA Section -->
+<section class="py-16 px-4 max-w-4xl mx-auto text-center">
+  <div
+    class="bg-gradient-to-br from-green-50 via-white to-green-100 rounded-3xl shadow-lg p-10 flex flex-col items-center"
+  >
+    <h2 class="text-3xl font-bold text-green-800 mb-4">
+      Are You a Plant Doctor or Agricultural Expert?
+    </h2>
+    <p class="text-green-700 mb-6 text-lg">
+      Join our mission to support farmers through expert guidance.<br />CauliScan
+      AI empowers doctors and plant specialists to review AI-based disease
+      detections and provide accurate suggestions for treatment. Your knowledge
+      can help farmers protect their crops, reduce pesticide misuse, and improve
+      harvest outcomes.
+    </p>
+    <a
+      href="/register/doctor"
+      class="px-8 py-3 rounded-full bg-green-700 text-white hover:bg-green-800 transition font-semibold shadow mb-2"
+      >Join as a Doctor</a
+    >
+    <span class="text-sm text-gray-500"
+      >Make a real-world impact with just a few minutes of your time — right
+      from your phone or laptop.</span
+    >
+  </div>
+</section>
+
+<!-- 🧠 How It Works Section -->
+<section class="py-20 px-4 max-w-6xl mx-auto text-center">
+  <h2 class="text-3xl font-bold text-green-800 mb-12">How It Works</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+    <!-- Step 1 -->
+    <div
+      class="bg-white rounded-2xl shadow-lg p-8 transition-transform transform hover:-translate-y-2 hover:shadow-2xl"
+    >
+      <div class="flex items-center justify-center mb-4">
+        <span
+          class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-700 text-3xl shadow"
+        >
+          📷
+        </span>
+      </div>
+      <h3 class="font-semibold text-xl mb-2">Upload</h3>
+      <p class="text-gray-600">Farmers upload images of affected plants.</p>
+    </div>
+    <!-- Step 2 -->
+    <div
+      class="bg-white rounded-2xl shadow-lg p-8 transition-transform transform hover:-translate-y-2 hover:shadow-2xl"
+    >
+      <div class="flex items-center justify-center mb-4">
+        <span
+          class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-700 text-3xl shadow"
+        >
+          🤖
+        </span>
+      </div>
+      <h3 class="font-semibold text-xl mb-2">Detect</h3>
+      <p class="text-gray-600">AI model detects the disease.</p>
+    </div>
+    <!-- Step 3 -->
+    <div
+      class="bg-white rounded-2xl shadow-lg p-8 transition-transform transform hover:-translate-y-2 hover:shadow-2xl"
+    >
+      <div class="flex items-center justify-center mb-4">
+        <span
+          class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-700 text-3xl shadow"
+        >
+          👨‍⚕️
+        </span>
+      </div>
+      <h3 class="font-semibold text-xl mb-2">Get Treatment</h3>
+      <p class="text-gray-600">
+        System suggests treatments or doctor feedback.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 🚀 Features Section -->
+<section
+  class="py-20 px-4 max-w-6xl mx-auto text-center bg-gradient-to-br from-green-50 via-white to-green-100 rounded-3xl shadow-inner"
+>
+  <h2 class="text-3xl font-bold text-green-800 mb-4">Features</h2>
+  <p class="text-green-700 mb-12 text-lg">
+    Powerful tools to help you diagnose and manage cauliflower diseases with
+    ease.
+  </p>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <!-- Feature 1 -->
+    <div
+      class="bg-white rounded-2xl shadow-lg p-10 flex flex-col items-center transition-transform transform hover:-translate-y-2 hover:shadow-2xl hover:ring-4 hover:ring-green-200"
+    >
+      <span
+        class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-100 text-green-600 text-4xl mb-6 shadow-lg transition-transform transform hover:scale-110"
+        >✅</span
+      >
+      <h3 class="font-semibold text-lg mb-2">Image Upload</h3>
+      <p class="text-gray-600 text-sm">
+        Upload images for leaf, stem, and floret.
+      </p>
+    </div>
+    <!-- Feature 2 -->
+    <div
+      class="bg-white rounded-2xl shadow-lg p-10 flex flex-col items-center transition-transform transform hover:-translate-y-2 hover:shadow-2xl hover:ring-4 hover:ring-green-200"
+    >
+      <span
+        class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-100 text-green-600 text-4xl mb-6 shadow-lg transition-transform transform hover:scale-110"
+        >✅</span
+      >
+      <h3 class="font-semibold text-lg mb-2">Disease Detection</h3>
+      <p class="text-gray-600 text-sm">
+        Detect diseases using advanced CNN models.
+      </p>
+    </div>
+    <!-- Feature 3 -->
+    <div
+      class="bg-white rounded-2xl shadow-lg p-10 flex flex-col items-center transition-transform transform hover:-translate-y-2 hover:shadow-2xl hover:ring-4 hover:ring-green-200"
+    >
+      <span
+        class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-100 text-green-600 text-4xl mb-6 shadow-lg transition-transform transform hover:scale-110"
+        >✅</span
+      >
+      <h3 class="font-semibold text-lg mb-2">Remedies & Suggestions</h3>
+      <p class="text-gray-600 text-sm">
+        Get remedies and doctor suggestions instantly.
+      </p>
+    </div>
+    <!-- Feature 4 -->
+    <div
+      class="bg-white rounded-2xl shadow-lg p-10 flex flex-col items-center transition-transform transform hover:-translate-y-2 hover:shadow-2xl hover:ring-4 hover:ring-green-200"
+    >
+      <span
+        class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-100 text-green-600 text-4xl mb-6 shadow-lg transition-transform transform hover:scale-110"
+        >✅</span
+      >
+      <h3 class="font-semibold text-lg mb-2">Admin Dashboard</h3>
+      <p class="text-gray-600 text-sm">
+        Admin dashboard for managing all cases.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 🌱 Benefits for Farmers Section -->
+<section class="py-20 px-4 max-w-6xl mx-auto text-center">
+  <h2 class="text-3xl font-bold text-green-800 mb-4">Benefits for Farmers</h2>
+  <p class="text-green-700 mb-12 text-lg">
+    Empowering farmers with technology for healthier crops and better yields.
+  </p>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div
+      class="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center transition-transform transform hover:-translate-y-2 hover:shadow-2xl"
+    >
+      <span
+        class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 text-3xl mb-4 shadow"
+        >🚀</span
+      >
+      <h3 class="font-semibold text-lg mb-2">Quick & Easy Detection</h3>
+      <p class="text-gray-600 text-sm">
+        Diagnose diseases in seconds with just a photo.
+      </p>
+    </div>
+    <div
+      class="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center transition-transform transform hover:-translate-y-2 hover:shadow-2xl"
+    >
+      <span
+        class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 text-3xl mb-4 shadow"
+        >🌿</span
+      >
+      <h3 class="font-semibold text-lg mb-2">Easy to Use</h3>
+      <p class="text-gray-600 text-sm">
+        Simple interface for all experience levels.
+      </p>
+    </div>
+    <div
+      class="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center transition-transform transform hover:-translate-y-2 hover:shadow-2xl"
+    >
+      <span
+        class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 text-3xl mb-4 shadow"
+        >💸</span
+      >
+      <h3 class="font-semibold text-lg mb-2">Saves Money</h3>
+      <p class="text-gray-600 text-sm">
+        Reduce unnecessary pesticide use and save costs.
+      </p>
+    </div>
+    <div
+      class="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center transition-transform transform hover:-translate-y-2 hover:shadow-2xl"
+    >
+      <span
+        class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 text-3xl mb-4 shadow"
+        >📊</span
+      >
+      <h3 class="font-semibold text-lg mb-2">Higher Yields</h3>
+      <p class="text-gray-600 text-sm">
+        Grow more with less disease and healthier crops.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 🦠 Supported Diseases Section -->
+<section class="py-20 px-4 max-w-4xl mx-auto text-center">
+  <h2 class="text-3xl font-bold text-green-800 mb-4">Supported Diseases</h2>
+  <p class="text-green-700 mb-10 text-lg">
+    Our AI can detect the following common cauliflower diseases:
+  </p>
+
+  <div class="flex flex-col gap-6 items-center">
+    <!-- Alternaria Leaf Spot -->
+    <div
+      class="flex items-center gap-4 bg-white rounded-2xl shadow-lg px-8 py-6 w-full max-w-xl mx-auto"
+    >
+      <span class="text-3xl">🍂</span>
+      <span class="text-lg font-medium text-green-800"
+        >Alternaria Leaf Spot</span
+      >
+    </div>
+
+    <!-- Club Root -->
+    <div
+      class="flex items-center gap-4 bg-white rounded-2xl shadow-lg px-8 py-6 w-full max-w-xl mx-auto"
+    >
+      <span class="text-3xl">🌱</span>
+      <span class="text-lg font-medium text-green-800">Club Root</span>
+    </div>
+
+    <!-- Downy Mildew -->
+    <div
+      class="flex items-center gap-4 bg-white rounded-2xl shadow-lg px-8 py-6 w-full max-w-xl mx-auto"
+    >
+      <span class="text-3xl">🦠</span>
+      <span class="text-lg font-medium text-green-800">Downy Mildew</span>
+    </div>
+
+    <!-- Cabbage Aphid Colony -->
+    <div
+      class="flex items-center gap-4 bg-white rounded-2xl shadow-lg px-8 py-6 w-full max-w-xl mx-auto"
+    >
+      <span class="text-3xl">🐛</span>
+      <span class="text-lg font-medium text-green-800"
+        >Cabbage Aphid Colony</span
+      >
+    </div>
+
+    <!-- Ring Spot -->
+    <div
+      class="flex items-center gap-4 bg-white rounded-2xl shadow-lg px-8 py-6 w-full max-w-xl mx-auto"
+    >
+      <span class="text-3xl">⭕</span>
+      <span class="text-lg font-medium text-green-800">Ring Spot</span>
+    </div>
+
+    <!-- Black Rot -->
+    <div
+      class="flex items-center gap-4 bg-white rounded-2xl shadow-lg px-8 py-6 w-full max-w-xl mx-auto"
+    >
+      <span class="text-3xl">🖤</span>
+      <span class="text-lg font-medium text-green-800">Black Rot</span>
+    </div>
+
+    <!-- Bacterial Spot Rot -->
+    <div
+      class="flex items-center gap-4 bg-white rounded-2xl shadow-lg px-8 py-6 w-full max-w-xl mx-auto"
+    >
+      <span class="text-3xl">🧫</span>
+      <span class="text-lg font-medium text-green-800">Bacterial Spot Rot</span>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

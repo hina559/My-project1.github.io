@@ -1,0 +1,238 @@
+{% extends "dashboard/admin/base_admin.html" %} {% block dashboard_content %}
+<div class="flex flex-col items-center mb-8">
+  <span class="text-6xl mb-2">👨‍🌾</span>
+  <h1 class="text-3xl font-extrabold text-blue-800 mb-2">Manage Farmers</h1>
+  <p class="text-lg text-blue-700 text-center">
+    View and manage registered farmers. You can remove accounts if necessary.
+  </p>
+</div>
+
+<div class="bg-white rounded-2xl shadow p-6 w-full">
+  <h2 class="text-xl font-bold text-blue-800 mb-4">Farmers</h2>
+
+  <!-- Scrollable table container -->
+  <div class="overflow-x-auto w-full">
+    <table class="min-w-full border border-gray-200 rounded-lg table-auto">
+      <thead class="bg-blue-100 text-blue-900">
+        <tr>
+          <th class="px-4 py-2 text-left">ID</th>
+          <th class="px-4 py-2 text-left">Username</th>
+          <th class="px-4 py-2 text-left">First Name</th>
+          <th class="px-4 py-2 text-left">Last Name</th>
+          <th class="px-4 py-2 text-left">Email</th>
+          <th class="px-4 py-2 text-left">Farm Size</th>
+          <th class="px-4 py-2 text-left">Years Farming</th>
+          <th class="px-4 py-2 text-left">Main Crops</th>
+          <th class="px-4 py-2 text-left">Irrigation</th>
+          <th class="px-4 py-2 text-left">Date Joined</th>
+          <th class="px-4 py-2 text-left">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for farmer in farmers %}
+        <tr class="border-b hover:bg-blue-50">
+          <td class="px-4 py-2">{{ farmer.id }}</td>
+          <td
+            class="px-4 py-2 truncate max-w-[120px]"
+            title="{{ farmer.username }}"
+          >
+            {{ farmer.username }}
+          </td>
+          <td class="px-4 py-2">{{ farmer.first_name|default:"-" }}</td>
+          <td class="px-4 py-2">{{ farmer.last_name|default:"-" }}</td>
+          <td
+            class="px-4 py-2 truncate max-w-[180px]"
+            title="{{ farmer.email }}"
+          >
+            {{ farmer.email }}
+          </td>
+          <td class="px-4 py-2">
+            <span class="text-sm font-medium">
+              {{ farmer.farmer_profile.farm_size|default:"-" }}
+            </span>
+          </td>
+          <td class="px-4 py-2">
+            <span class="text-sm font-medium">
+              {{ farmer.farmer_profile.years_farming|default:"-" }} years
+            </span>
+          </td>
+          <td
+            class="px-4 py-2 truncate max-w-[150px]"
+            title="{{ farmer.farmer_profile.main_crops }}"
+          >
+            {{ farmer.farmer_profile.main_crops|default:"-" }}
+          </td>
+          <td
+            class="px-4 py-2 truncate max-w-[120px]"
+            title="{{ farmer.farmer_profile.irrigation_method }}"
+          >
+            {{ farmer.farmer_profile.irrigation_method|default:"-" }}
+          </td>
+          <td class="px-4 py-2">{{ farmer.date_joined|date:"F j, Y" }}</td>
+          <td class="px-4 py-2">
+            <button
+              data-farmer-id="{{ farmer.id }}"
+              data-farmer-name="{{ farmer.first_name|default:farmer.username|escapejs }}"
+              class="delete-farmer-btn px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="11" class="text-center py-4 text-gray-500">
+            No farmers found.
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div
+  id="deleteModal"
+  class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50"
+>
+  <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+    <h3 class="text-lg font-bold text-gray-800 mb-4">Confirm Delete</h3>
+    <p id="deleteMessage" class="text-gray-700 mb-6"></p>
+    <div class="flex gap-3">
+      <button
+        onclick="closeDeleteModal()"
+        class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition"
+      >
+        Cancel
+      </button>
+      <button
+        id="confirmDeleteBtn"
+        class="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Success/Error Message -->
+<div id="messageContainer" class="fixed top-4 right-4 z-50 hidden">
+  <div
+    id="messageContent"
+    class="px-6 py-3 rounded-lg shadow-lg text-white"
+  ></div>
+</div>
+
+<script>
+  let currentDeleteId = null;
+  let currentDeleteType = null;
+
+  function confirmDeleteDoctor(doctorId, doctorName) {
+    currentDeleteId = doctorId;
+    currentDeleteType = "doctor";
+    document.getElementById(
+      "deleteMessage"
+    ).textContent = `Are you sure you want to delete doctor "${doctorName}"? This action cannot be undone.`;
+    document.getElementById("deleteModal").classList.remove("hidden");
+    document.getElementById("deleteModal").classList.add("flex");
+  }
+
+  function confirmDeleteFarmer(farmerId, farmerName) {
+    currentDeleteId = farmerId;
+    currentDeleteType = "farmer";
+    document.getElementById(
+      "deleteMessage"
+    ).textContent = `Are you sure you want to delete farmer "${farmerName}"? This action cannot be undone.`;
+    document.getElementById("deleteModal").classList.remove("hidden");
+    document.getElementById("deleteModal").classList.add("flex");
+  }
+
+  function closeDeleteModal() {
+    document.getElementById("deleteModal").classList.add("hidden");
+    document.getElementById("deleteModal").classList.remove("flex");
+    currentDeleteId = null;
+    currentDeleteType = null;
+  }
+
+  function showMessage(message, isSuccess = true) {
+    const container = document.getElementById("messageContainer");
+    const content = document.getElementById("messageContent");
+
+    content.textContent = message;
+    content.className = `px-6 py-3 rounded-lg shadow-lg text-white ${
+      isSuccess ? "bg-green-600" : "bg-red-600"
+    }`;
+
+    container.classList.remove("hidden");
+    container.classList.add("block");
+
+    setTimeout(() => {
+      container.classList.add("hidden");
+      container.classList.remove("block");
+    }, 3000);
+  }
+
+  // Add event listeners when DOM is loaded
+  document.addEventListener("DOMContentLoaded", function () {
+    // Set up confirm delete button
+    document
+      .getElementById("confirmDeleteBtn")
+      .addEventListener("click", function () {
+        if (currentDeleteId && currentDeleteType) {
+          const url =
+            currentDeleteType === "doctor"
+              ? `/admin-panel/delete/doctor/${currentDeleteId}/`
+              : `/admin-panel/delete/farmer/${currentDeleteId}/`;
+
+          fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              closeDeleteModal();
+              if (data.success) {
+                showMessage(data.message, true);
+                // Reload page after successful delete
+                setTimeout(() => {
+                  window.location.reload();
+                }, 1000);
+              } else {
+                showMessage(data.message, false);
+              }
+            })
+            .catch((error) => {
+              closeDeleteModal();
+              showMessage(
+                "An error occurred while deleting. Please try again.",
+                false
+              );
+            });
+        }
+      });
+
+    // Close modal when clicking outside
+    document
+      .getElementById("deleteModal")
+      .addEventListener("click", function (e) {
+        if (e.target === this) {
+          closeDeleteModal();
+        }
+      });
+
+    // Add event listeners for delete farmer buttons
+    document.querySelectorAll(".delete-farmer-btn").forEach(function (button) {
+      button.addEventListener("click", function () {
+        const farmerId = this.getAttribute("data-farmer-id");
+        const farmerName = this.getAttribute("data-farmer-name");
+        console.log("Delete farmer button clicked:", farmerId, farmerName);
+        confirmDeleteFarmer(farmerId, farmerName);
+      });
+    });
+  });
+</script>
+
+{% endblock %}

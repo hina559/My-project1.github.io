@@ -1,0 +1,64 @@
+<!-- Upcoming Events Modal -->
+<div
+  id="upcomingEventsModal"
+  class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"
+>
+  <div
+    class="bg-white rounded-2xl shadow-xl w-11/12 md:w-2/3 lg:w-1/2 p-6 relative"
+  >
+    <!-- Close Button -->
+    <button
+      onclick="closeModal()"
+      class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-xl font-bold"
+    >
+      &times;
+    </button>
+
+    <h2 class="text-2xl font-bold text-green-800 mb-4">📅 Upcoming Events</h2>
+
+    <div class="space-y-4 max-h-80 overflow-y-auto">
+      {% if upcoming_events %} {% for event in upcoming_events %}
+
+      <div
+        class="border border-green-200 rounded-lg p-4 hover:bg-green-50 transition"
+      >
+        <h3 class="font-semibold text-green-900 text-lg">{{ event.title }}</h3>
+        <p class="text-sm text-green-700">
+          {{ event.date|date:"M d, Y" }} | {{ event.venue }}
+        </p>
+        <p class="text-sm mt-2 text-green-800">{{ event.description }}</p>
+      </div>
+      {% endfor %} {% else %}
+      <p class="text-green-700 text-center">No upcoming events.</p>
+      {% endif %}
+    </div>
+
+    <!-- Optional footer -->
+    <div class="mt-6 flex justify-end">
+      <button
+        onclick="closeModal()"
+        class="px-4 py-2 bg-green-700 text-white rounded-lg hover:bg-green-800 transition"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function closeModal() {
+    document.getElementById("upcomingEventsModal").classList.add("hidden");
+    // Mark modal as seen for this session
+    sessionStorage.setItem("eventsModalSeen", "true");
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("upcomingEventsModal");
+    const seen = sessionStorage.getItem("eventsModalSeen");
+
+    // Show modal only if it hasn’t been seen in this session
+    if (!seen) {
+      modal.classList.remove("hidden");
+    }
+  });
+</script>

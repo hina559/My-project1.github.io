@@ -1,0 +1,71 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<div class="flex items-center justify-center bg-green-50 py-12 px-8">
+  <div
+    class="w-full bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col md:flex-row"
+  >
+    <!-- Sidebar -->
+    <aside
+      class="md:w-1/4 bg-gradient-to-br from-green-50 via-white to-green-100 flex flex-col justify-between p-8"
+    >
+      <div>
+        <div class="flex flex-col items-center mb-8">
+          <span class="text-6xl mb-2">👨‍🌾</span>
+          <span class="text-xl font-bold text-green-800">Farmer Panel</span>
+        </div>
+        <nav class="flex flex-col gap-4">
+          <a
+            href="{% url 'farmer_dashboard' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-green-800 hover:bg-green-200 transition text-lg"
+          >
+            <span>🏠</span> Dashboard
+          </a>
+          <a
+            href="{% url 'farmer_profile' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-green-700 hover:bg-green-100 transition text-lg"
+          >
+            <span>👤</span> Profile
+          </a>
+          <a
+            href="{% url 'farmer_events' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-green-700 hover:bg-green-100 transition text-lg"
+          >
+            <span>📅</span> Events
+          </a>
+          <a
+            href="{% url 'farmer_detect_disease' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-green-700 hover:bg-green-100 transition text-lg"
+          >
+            <span>🔬</span> Analyze Image
+          </a>
+          <a
+            href="{% url 'farmer_cases_list' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-green-700 hover:bg-green-100 transition text-lg"
+          >
+            <span>📝</span> Cases
+          </a>
+          <a
+            href="{% url 'farmer_notifications' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-green-700 hover:bg-green-100 transition text-lg"
+          >
+            <span>🔔</span> Notifications
+          </a>
+        </nav>
+      </div>
+      <a
+        href="{% url 'logout' %}"
+        class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-red-700 bg-red-100 hover:bg-red-200 transition text-lg mt-8 justify-center"
+      >
+        <span>🚪</span> Logout
+      </a>
+    </aside>
+    <!-- Main Content -->
+    <main class="md:w-3/4 flex flex-col justify-center items-center p-10">
+      <div class="w-full">
+        {% block dashboard_content %}
+        <!-- Page-specific content goes here -->
+        {% endblock %}
+      </div>
+    </main>
+  </div>
+</div>
+{% endblock %}

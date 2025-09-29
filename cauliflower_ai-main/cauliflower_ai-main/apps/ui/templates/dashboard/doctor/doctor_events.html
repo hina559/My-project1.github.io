@@ -1,0 +1,71 @@
+{% extends "dashboard/doctor/base_doctor.html" %} {% block dashboard_content %}
+
+<!-- Header -->
+<div class="flex flex-col items-center mb-8">
+  <span class="text-7xl mb-2">📅</span>
+  <h1 class="text-3xl font-extrabold text-blue-800 mb-2">Upcoming Events</h1>
+  <p class="text-lg text-blue-700 text-center">
+    Review all events relevant to doctors in the system.
+  </p>
+</div>
+
+<!-- Events Table Card -->
+<div class="bg-white rounded-2xl shadow p-6">
+  <div class="flex justify-between items-center mb-4">
+    <h2 class="text-xl font-bold text-blue-800 flex items-center gap-2">
+      <span>📋</span> All Events
+    </h2>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border border-blue-200 rounded-lg text-sm">
+      <thead class="bg-blue-50 text-blue-800">
+        <tr>
+          <th class="px-4 py-2 border">#ID</th>
+          <th class="px-4 py-2 border">Title</th>
+          <th class="px-4 py-2 border">Date</th>
+          <th class="px-4 py-2 border">Venue</th>
+          <th class="px-4 py-2 border">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for event in events %}
+        <tr class="hover:bg-blue-50 transition">
+          <td class="px-4 py-2 border text-center font-mono">{{ event.id }}</td>
+          <td class="px-4 py-2 border font-semibold">{{ event.title }}</td>
+          <td class="px-4 py-2 border">{{ event.date|date:"M d, Y" }}</td>
+          <td class="px-4 py-2 border">{{ event.venue }}</td>
+          <td class="px-4 py-2 border">
+            <div class="flex items-center gap-2 relative group">
+              <!-- Truncated description -->
+              <span class="text-blue-700 font-medium"
+                >{{ event.description|truncatechars:15 }}</span
+              >
+              <!-- Info icon for tooltip -->
+              <span class="cursor-pointer text-blue-600 hover:text-blue-800"
+                >ℹ️</span
+              >
+
+              <!-- Tooltip -->
+              <div
+                class="fixed hidden group-hover:block bg-blue-900 text-white text-xs rounded-lg px-3 py-2 max-w-sm max-h-60 overflow-y-auto whitespace-normal shadow-lg z-[9999]"
+                style="top: auto; left: auto"
+              >
+                {{ event.description }}
+              </div>
+            </div>
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="5" class="text-center py-6 text-blue-700">
+            No events available.
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

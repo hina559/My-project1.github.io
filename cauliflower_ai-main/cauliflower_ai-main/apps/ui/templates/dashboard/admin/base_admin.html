@@ -1,0 +1,86 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<div class="min-h-screen flex items-center justify-center bg-blue-50 py-6 px-3">
+  <div
+    class="w-full h-full bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col md:flex-row"
+  >
+    <!-- Sidebar -->
+    <aside
+      class="md:w-1/4 bg-gradient-to-br from-blue-50 via-white to-blue-100 flex flex-col justify-between p-8"
+    >
+      <div>
+        <div class="flex flex-col items-center mb-8">
+          <span class="text-6xl mb-2">🛡️</span>
+          <span class="text-xl font-bold text-blue-800">Admin Panel</span>
+        </div>
+        <nav class="flex flex-col gap-4">
+          <a
+            href="{% url 'admin_dashboard' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-blue-800 hover:bg-blue-200 transition text-lg"
+          >
+            <span>🏠</span> Dashboard
+          </a>
+          <a
+            href="{% url 'manage_farmers' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-blue-700 hover:bg-blue-100 transition text-lg"
+          >
+            <span>👨‍🌾</span> Manage Farmers
+          </a>
+          <a
+            href="{% url 'manage_doctors' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-blue-700 hover:bg-blue-100 transition text-lg"
+          >
+            <span>👨‍⚕️</span> Manage Doctors
+          </a>
+          <a
+            href="{% url 'admin_create_event' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-blue-700 hover:bg-blue-100 transition text-lg"
+          >
+            <span>➕</span> Create Event
+          </a>
+
+          <a
+            href="{% url 'admin_manage_events' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-blue-700 hover:bg-blue-100 transition text-lg"
+          >
+            <span>📅</span> Manage Events
+          </a>
+          <a
+            href="{% url 'admin_add_notification' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-blue-700 hover:bg-blue-100 transition text-lg"
+          >
+            <span>➕</span> Create Notification
+          </a>
+          <a
+            href="{% url 'admin_manage_notifications' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-blue-700 hover:bg-blue-100 transition text-lg"
+          >
+            <span>🔔</span> Manage Notifications
+          </a>
+
+          <a
+            href="{% url 'admin_profile' %}"
+            class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-blue-700 hover:bg-blue-100 transition text-lg"
+          >
+            <span>👤</span> Profile
+          </a>
+        </nav>
+      </div>
+      <a
+        href="{% url 'logout' %}"
+        class="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-red-700 bg-red-100 hover:bg-red-200 transition text-lg mt-8 justify-center"
+      >
+        <span>🚪</span> Logout
+      </a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="md:w-3/4 flex flex-col p-8 overflow-y-auto">
+      <div class="w-full">
+        {% block dashboard_content %}
+        <!-- Page-specific content goes here -->
+        {% endblock %}
+      </div>
+    </main>
+  </div>
+</div>
+{% endblock %}

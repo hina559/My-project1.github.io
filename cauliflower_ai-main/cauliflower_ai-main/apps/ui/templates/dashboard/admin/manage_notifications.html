@@ -1,0 +1,225 @@
+{% extends "dashboard/admin/base_admin.html" %} {% block dashboard_content %}
+
+<!-- Header -->
+<div class="flex flex-col items-center mb-8">
+  <span class="text-5xl mb-2">🔔</span>
+  <h1 class="text-3xl font-extrabold text-blue-800 mb-2">
+    Manage Notifications
+  </h1>
+  <p class="text-lg text-blue-700 text-center">
+    View and delete system notifications for farmers and doctors.
+  </p>
+</div>
+
+<!-- Notifications Table Card -->
+<div class="bg-white rounded-2xl shadow p-6 w-full">
+  <div class="flex justify-between items-center mb-4">
+    <h2 class="text-xl font-bold text-blue-800 flex items-center gap-2">
+      <span>📋</span> All Notifications
+    </h2>
+  </div>
+
+  <div class="overflow-x-auto w-full">
+    <table class="min-w-full border border-blue-200 rounded-lg text-sm">
+      <thead class="bg-blue-50 text-blue-800">
+        <tr>
+          <th class="px-4 py-2 border">#</th>
+          <th class="px-4 py-2 border">Recipient</th>
+          <th class="px-4 py-2 border">Role</th>
+          <th class="px-4 py-2 border">Title</th>
+          <th class="px-4 py-2 border">Message</th>
+          <th class="px-4 py-2 border">Date</th>
+          <th class="px-4 py-2 border">Status</th>
+          <th class="px-4 py-2 border">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for note in notifications %}
+        <tr class="hover:bg-blue-50 transition">
+          <td class="px-4 py-2 border text-center font-mono">
+            {{ forloop.counter }}
+          </td>
+
+          <!-- Recipient Full Name -->
+          <td class="px-4 py-2 border">
+            {% if note.recipient %}
+            <div class="font-semibold break-words">
+              {{ note.recipient.first_name }} {{ note.recipient.last_name }}
+            </div>
+            {% else %}
+            <div class="text-gray-500 font-semibold">N/A</div>
+            {% endif %}
+          </td>
+
+          <!-- Role Column -->
+          <td class="px-4 py-2 border">
+            {% if note.recipient %} {% if note.recipient.role == "farmer" %}
+            <span class="px-2 py-1 bg-green-100 text-green-800 rounded"
+              >👨‍🌾 Farmer</span
+            >
+            {% elif note.recipient.role == "doctor" %}
+            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded"
+              >👨‍⚕️ Doctor</span
+            >
+            {% else %}
+            <span class="px-2 py-1 bg-gray-100 text-gray-800 rounded"
+              >Other</span
+            >
+            {% endif %} {% else %}
+            <span class="text-gray-400">Unknown</span>
+            {% endif %}
+          </td>
+
+          <!-- Title -->
+          <td class="px-4 py-2 border font-semibold">{{ note.title }}</td>
+
+          <!-- Message with Tooltip -->
+          <td class="px-4 py-2 border">
+            <div class="flex items-center gap-2 relative group">
+              <span class="text-blue-700 font-medium"
+                >{{ note.message|truncatechars:20 }}</span
+              >
+              <span class="cursor-pointer text-blue-600 hover:text-blue-800"
+                >ℹ️</span
+              >
+              <div
+                class="fixed hidden group-hover:block bg-blue-900 text-white text-xs rounded-lg px-3 py-2 max-w-sm max-h-60 overflow-y-auto whitespace-normal shadow-lg z-[9999]"
+                style="top: auto; left: auto"
+              >
+                {{ note.message }}
+              </div>
+            </div>
+          </td>
+
+          <!-- Date -->
+          <td class="px-4 py-2 border">
+            {{ note.created_at|date:"M d, Y H:i" }}
+          </td>
+
+          <!-- Status Column -->
+          <td class="px-4 py-2 border text-center">
+            {% if note.is_read %} ✅ Read {% else %} 🔹 Unread {% endif %}
+          </td>
+
+          <!-- Delete Button -->
+          <td class="px-4 py-2 border">
+            <button
+              onclick="confirmDeleteNotification('{{ note.id }}', '{{ note.title|escapejs }}')"
+              class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="8" class="text-center py-6 text-blue-700">
+            No notifications found.
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div
+  id="deleteModal"
+  class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50"
+>
+  <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+    <h3 class="text-lg font-bold text-gray-800 mb-4">Confirm Delete</h3>
+    <p id="deleteMessage" class="text-gray-700 mb-6"></p>
+    <div class="flex gap-3">
+      <button
+        onclick="closeDeleteModal()"
+        class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition"
+      >
+        Cancel
+      </button>
+      <button
+        id="confirmDeleteBtn"
+        class="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Success/Error Message -->
+<div id="messageContainer" class="fixed top-4 right-4 z-50 hidden">
+  <div
+    id="messageContent"
+    class="px-6 py-3 rounded-lg shadow-lg text-white"
+  ></div>
+</div>
+
+<script>
+  let currentDeleteId = null;
+
+  function confirmDeleteNotification(noteId, noteTitle) {
+    currentDeleteId = noteId;
+    document.getElementById(
+      "deleteMessage"
+    ).textContent = `Are you sure you want to delete notification "${noteTitle}"? This action cannot be undone.`;
+    document.getElementById("deleteModal").classList.remove("hidden");
+    document.getElementById("deleteModal").classList.add("flex");
+  }
+
+  function closeDeleteModal() {
+    document.getElementById("deleteModal").classList.add("hidden");
+    document.getElementById("deleteModal").classList.remove("flex");
+    currentDeleteId = null;
+  }
+
+  function showMessage(message, isSuccess = true) {
+    const container = document.getElementById("messageContainer");
+    const content = document.getElementById("messageContent");
+    content.textContent = message;
+    content.className = `px-6 py-3 rounded-lg shadow-lg text-white ${
+      isSuccess ? "bg-green-600" : "bg-red-600"
+    }`;
+    container.classList.remove("hidden");
+    container.classList.add("block");
+    setTimeout(() => {
+      container.classList.add("hidden");
+      container.classList.remove("block");
+    }, 3000);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document
+      .getElementById("confirmDeleteBtn")
+      .addEventListener("click", function () {
+        if (currentDeleteId) {
+          fetch(`/admin-panel/notifications/delete/${currentDeleteId}/`, {
+            method: "POST",
+            headers: {
+              "X-CSRFToken": "{{ csrf_token }}",
+              "Content-Type": "application/json",
+            },
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              closeDeleteModal();
+              showMessage(data.message, data.success);
+              if (data.success) setTimeout(() => location.reload(), 800);
+            })
+            .catch(() => {
+              closeDeleteModal();
+              showMessage("Error deleting notification.", false);
+            });
+        }
+      });
+
+    document
+      .getElementById("deleteModal")
+      .addEventListener("click", function (e) {
+        if (e.target === this) closeDeleteModal();
+      });
+  });
+</script>
+
+{% endblock %}

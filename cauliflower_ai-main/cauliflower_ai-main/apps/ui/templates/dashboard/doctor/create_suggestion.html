@@ -1,0 +1,151 @@
+{% extends "dashboard/doctor/base_doctor.html" %} {% block dashboard_content %}
+
+<div class="flex flex-col items-center mb-8">
+  <span class="text-7xl mb-2">💡</span>
+  <h1 class="text-3xl font-extrabold text-blue-800 mb-2">Suggest</h1>
+  <p class="text-lg text-blue-700 text-center">
+    Provide general advice and recommendations for cauliflower disease
+    management.
+  </p>
+</div>
+
+{% if user.doctor_profile.is_approved %}
+<!-- Suggestion Form -->
+<div class="bg-white rounded-2xl shadow p-6">
+  <h2 class="text-xl font-bold text-blue-800 mb-6 flex items-center gap-2">
+    <span>📝</span> Create New Suggestion
+  </h2>
+
+  <form
+    method="POST"
+    action="{% url 'doctor_create_suggestion' %}"
+    class="space-y-6"
+  >
+    {% csrf_token %}
+
+    <!-- Disease Type -->
+    <div>
+      <label class="block text-blue-700 font-semibold mb-2">
+        🦠 Disease Type
+      </label>
+      <select name="disease_type" ... required>
+        <option value="">Select disease type</option>
+        <option value="alternaria_leaf_spot">🍂 Alternaria Leaf Spot</option>
+        <option value="club_root">🌱 Club Root</option>
+        <option value="downy_mildew">🌿 Downy Mildew</option>
+        <option value="cabbage_aphid_colony">🐛 Cabbage Aphid Colony</option>
+        <option value="ring_spot">⭕ Ring Spot</option>
+        <option value="black_rot">🖤 Black Rot</option>
+        <option value="bacterial_spot_rot">🧫 Bacterial Spot Rot</option>
+        <option value="no_disease">✅ No Disease</option>
+      </select>
+    </div>
+
+    <!-- Suggestion Title -->
+    <div>
+      <label class="block text-blue-700 font-semibold mb-2">
+        📌 Suggestion Title
+      </label>
+      <input
+        type="text"
+        name="title"
+        class="w-full px-4 py-3 rounded-lg border border-blue-200 focus:ring-2 focus:ring-blue-700 focus:outline-none transition"
+        placeholder="Enter a descriptive title for this suggestion..."
+        required
+      />
+    </div>
+
+    <!-- Treatment Recommendations -->
+    <div>
+      <label class="block text-blue-700 font-semibold mb-2">
+        💊 Treatment Recommendations
+      </label>
+      <textarea
+        name="treatment"
+        rows="4"
+        class="w-full px-4 py-3 rounded-lg border border-blue-200 focus:ring-2 focus:ring-blue-700 focus:outline-none transition"
+        placeholder="Provide detailed treatment recommendations..."
+        required
+      ></textarea>
+    </div>
+
+    <!-- Prevention Measures -->
+    <div>
+      <label class="block text-blue-700 font-semibold mb-2">
+        🛡️ Prevention Measures
+      </label>
+      <textarea
+        name="prevention"
+        rows="4"
+        class="w-full px-4 py-3 rounded-lg border border-blue-200 focus:ring-2 focus:ring-blue-700 focus:outline-none transition"
+        placeholder="Suggest preventive measures..."
+        required
+      ></textarea>
+    </div>
+
+    <!-- Best Practices -->
+    <div>
+      <label class="block text-blue-700 font-semibold mb-2">
+        ✅ Best Practices
+      </label>
+      <textarea
+        name="best_practices"
+        rows="3"
+        class="w-full px-4 py-3 rounded-lg border border-blue-200 focus:ring-2 focus:ring-blue-700 focus:outline-none transition"
+        placeholder="Additional best practices and tips..."
+      ></textarea>
+    </div>
+
+    <!-- Priority Level -->
+    <div>
+      <label class="block text-blue-700 font-semibold mb-2">
+        ⚠️ Priority Level
+      </label>
+      <select
+        name="priority"
+        class="w-full px-4 py-3 rounded-lg border border-blue-200 focus:ring-2 focus:ring-blue-700 focus:outline-none transition"
+        required
+      >
+        <option value="">Select priority level</option>
+        <option value="low">🟢 Low - General information</option>
+        <option value="medium">🟡 Medium - Important for prevention</option>
+        <option value="high">🔴 High - Critical for disease management</option>
+      </select>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex gap-4 pt-4">
+      <button
+        type="submit"
+        class="px-6 py-3 bg-blue-700 text-white rounded-lg shadow hover:bg-blue-800 transition font-semibold"
+      >
+        💾 Save Suggestion
+      </button>
+      <a
+        href="{% url 'doctor_past_suggestions' %}"
+        class="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition font-semibold"
+      >
+        📊 View All Suggestions
+      </a>
+    </div>
+  </form>
+</div>
+{% else %}
+<!-- Disabled State -->
+<div class="bg-gray-50 rounded-2xl shadow p-6 text-center">
+  <div class="text-6xl mb-4">🔒</div>
+  <h2 class="text-xl font-bold text-gray-600 mb-4">Access Restricted</h2>
+  <p class="text-gray-500 mb-6">
+    You need admin approval to create suggestions and access case management
+    features.
+  </p>
+  <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+    <p class="text-yellow-800">
+      <strong>Status:</strong> Pending Admin Approval
+    </p>
+    <p class="text-yellow-700 text-sm mt-1">
+      Please contact the administrator or wait for your account to be reviewed.
+    </p>
+  </div>
+</div>
+{% endif %} {% endblock %}

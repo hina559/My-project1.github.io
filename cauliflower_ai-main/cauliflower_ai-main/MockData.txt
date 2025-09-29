@@ -1,0 +1,762 @@
+=========================================
+👨‍⚕️ Doctor Profiles
+=========================================
+
+-----------------------------------------
+👨‍⚕️ Dr. Ayesha Khan – Plant Pathology
+-----------------------------------------
+First Name: Ayesha
+Last Name: Khan
+Username: ayesha_k
+Email: ayesha.khan@example.com
+Password: doctor123
+Specialization: Plant Pathology
+
+-----------------------------------------
+👨‍⚕️ Dr. Ahmed Raza – Entomology
+-----------------------------------------
+First Name: Ahmed
+Last Name: Raza
+Username: ahmed_r
+Email: ahmed.raza@example.com
+Password: doctor123
+Specialization: Entomology
+
+-----------------------------------------
+👩‍⚕️ Dr. Fatima Malik – Horticulture
+-----------------------------------------
+First Name: Fatima
+Last Name: Malik
+Username: fatima_m
+Email: fatima.malik@example.com
+Password: doctor123
+Specialization: Horticulture
+
+
+
+=========================================
+🚜 Farmer Profiles
+=========================================
+
+-----------------------------------------
+👨‍🌾 Farmer Profile – Ali Hassan
+-----------------------------------------
+First Name: Ali
+Last Name: Hassan
+Username: ali_h
+Email: ali.hassan@example.com
+Password: farmer123
+Farm Size: 12 acres
+Years Farming: 8
+Main Crops: Cauliflower, Cabbage, Wheat
+Irrigation Method: Drip + Flood
+
+-----------------------------------------
+👩‍🌾 Farmer Profile – Sara Javed
+-----------------------------------------
+First Name: Sara
+Last Name: Javed
+Username: sara_j
+Email: sara.javed@example.com
+Password: farmer123
+Farm Size: 6 acres
+Years Farming: 5
+Main Crops: Tomato, Cauliflower, Onion
+Irrigation Method: Tube Well
+
+-----------------------------------------
+👨‍🌾 Farmer Profile – Bilal Ahmad
+-----------------------------------------
+First Name: Bilal
+Last Name: Ahmad
+Username: bilal_a
+Email: bilal.ahmad@example.com
+Password: farmer123
+Farm Size: 15 acres
+Years Farming: 12
+Main Crops: Cauliflower, Potato, Rice
+Irrigation Method: Canal Water
+
+
+
+
+=========================================
+📅 Awareness & Training Events
+=========================================
+
+-----------------------------------------
+📝 Event Title:
+Downy Mildew Awareness Workshop
+
+📆 Event Date:
+09/15/2025
+
+📍 Venue:
+Punjab Agriculture Research Center, Lahore
+
+📖 Event Description:
+A hands-on training session for farmers to identify early symptoms of downy mildew in cauliflower, learn proper fungicide use, and adopt preventive practices. Includes live field demonstrations.
+
+-----------------------------------------
+📝 Event Title:
+Integrated Black Rot Management Training
+
+📆 Event Date:
+10/01/2025
+
+📍 Venue:
+Online (Zoom Webinar)
+
+📖 Event Description:
+An expert-led session on effective black rot control, covering seed treatment, sanitation, and crop rotation. Farmers will also get digital resources and Q&A opportunities with pathologists.
+
+-----------------------------------------
+📝 Event Title:
+Bacterial Spot Rot Control Field Day
+
+📆 Event Date:
+10/20/2025
+
+📍 Venue:
+Faisalabad Farmers Training Center
+
+📖 Event Description:
+Field demonstration showcasing copper sprays, biological control products, and post-harvest handling practices to minimize bacterial spot rot in cauliflower. Farmers can interact directly with experts.
+
+-----------------------------------------
+📝 Event Title:
+Farmer–Expert Networking Meetup
+
+📆 Event Date:
+11/05/2025
+
+📍 Venue:
+Agricultural University Auditorium, Multan
+
+📖 Event Description:
+An interactive networking program where farmers share challenges, and experts provide tailored solutions. The focus will be on integrated pest and disease management for cruciferous crops.
+
+-----------------------------------------
+📝 Event Title:
+Sustainable Crop Health Awareness Seminar
+
+📆 Event Date:
+11/25/2025
+
+📍 Venue:
+Sindh Agriculture Expo Hall, Hyderabad
+
+📖 Event Description:
+A large-scale awareness event emphasizing eco-friendly disease management practices, use of resistant varieties, and crop rotation strategies. Includes panel discussions and farmer success stories.
+
+
+=========================================
+🔔 Notifications
+=========================================
+
+-----------------------------------------
+
+📌 Notification Title:
+New Research Update on Black Rot
+
+📨 Message:
+A recent study suggests improved efficacy of copper hydroxide formulations in managing black rot in cruciferous crops. Please review and update recommendations for farmers.
+
+-----------------------------------------
+
+📌 Notification Title:
+Upcoming Farmer Training Event
+
+📨 Message:
+You are invited to lead the "Sustainable Crop Health Awareness Seminar" scheduled for 11/25/2025 in Hyderabad. Kindly confirm your availability.
+
+-----------------------------------------
+
+📌 Notification Title:
+Weather Alert – High Humidity Warning
+
+📨 Message:
+High humidity is expected in your region over the next 5 days. Please monitor cauliflower fields closely for early signs of downy mildew infection.
+
+-----------------------------------------
+📝 Recipient:
+
+
+📌 Notification Title:
+Seed Purchase Reminder
+
+📨 Message:
+Don’t forget to purchase certified disease-free cauliflower seeds for the upcoming season to reduce the risk of black rot.
+
+-----------------------------------------
+
+=========================================
+🔔 Case opening description for farmers
+=========================================
+📨 Message (Alternaria Leaf Spot):
+Doctor, I see dark spots forming on the cauliflower leaves that are spreading quickly. Can you guide me on treatment?
+
+📨 Message (Club Root):
+Doctor, my cauliflower plants look weak and their roots are swollen and deformed. What should I do to manage this?
+
+📨 Message (Downy Mildew):
+Doctor, yellow patches and a white fuzzy layer are appearing under the leaves. Please suggest a solution.
+
+📨 Message (Cabbage Aphid Colony):
+Doctor, I see clusters of small green insects on the leaves of my cauliflower. They are damaging the plants. How can I control them?
+
+📨 Message (Ring Spot):
+Doctor, my crop leaves are showing circular spots with dark edges. What treatment do you recommend?
+
+📨 Message (Black Rot):
+Doctor, yellow V-shaped patches are forming on leaf edges and spreading inside. How can I save my crop?
+
+📨 Message (Bacterial Spot Rot):
+Doctor, some cauliflower heads are getting soft, brown, and smelly. What should I apply to stop this?
+
+📨 Message (No Disease):
+Doctor, my crop looks healthy right now. What preventive steps should I take to keep it safe from diseases?
+
+
+=========================================
+🍂 Alternaria Leaf Spot (Cauliflower)
+=========================================
+
+📌 Suggestion Title:
+Fungicide-Based Alternaria Management
+
+💊 Treatment Recommendations:
+- Apply preventive sprays of mancozeb or chlorothalonil.
+- Remove and burn heavily infected leaves.
+- Use systemic fungicides during wet seasons.
+
+🛡️ Prevention Measures:
+- Avoid overhead irrigation.
+- Rotate with non-host crops for at least 2 years.
+- Use resistant hybrids when available.
+
+✅ Best Practices:
+- Scout fields twice weekly.
+- Space plants properly for airflow.
+- Clean farm equipment after use.
+
+⚠️ Priority Level: High
+
+-----------------------------------------
+
+📌 Suggestion Title:
+Organic Control of Alternaria Leaf Spot
+
+💊 Treatment Recommendations:
+- Use neem oil sprays weekly during high humidity.
+- Apply compost tea as foliar spray.
+- Introduce Trichoderma-based biocontrol agents.
+
+🛡️ Prevention Measures:
+- Improve soil organic matter.
+- Avoid continuous monocropping.
+- Mulch with disease-free crop residues.
+
+✅ Best Practices:
+- Encourage intercropping.
+- Train farmers to identify early lesions.
+- Keep irrigation water clean.
+
+⚠️ Priority Level: Medium
+
+-----------------------------------------
+
+📌 Suggestion Title:
+Integrated Nutrient + Fungicide Strategy
+
+💊 Treatment Recommendations:
+- Apply balanced NPK fertilizers to reduce stress.
+- Alternate systemic and contact fungicides.
+- Remove infected debris after harvest.
+
+🛡️ Prevention Measures:
+- Eliminate weeds hosting the pathogen.
+- Use treated/certified seeds.
+- Maintain proper drainage.
+
+✅ Best Practices:
+- Record fungicide applications to avoid resistance.
+- Inspect fields after rainfall.
+- Train farmers in integrated management.
+
+⚠️ Priority Level: High
+
+=========================================
+🌱 Club Root (Cauliflower)
+=========================================
+
+📌 Suggestion Title:
+Soil pH Management for Club Root
+
+💊 Treatment Recommendations:
+- Apply lime to raise soil pH above 7.2.
+- Improve drainage with raised beds.
+- Remove infected plants early.
+
+🛡️ Prevention Measures:
+- Rotate with cereals or legumes.
+- Avoid reusing infested soils.
+- Use resistant varieties if available.
+
+✅ Best Practices:
+- Test soil pH regularly.
+- Use disease-free transplants.
+- Educate farmers on early detection.
+
+⚠️ Priority Level: High
+
+-----------------------------------------
+
+📌 Suggestion Title:
+Organic Club Root Suppression
+
+💊 Treatment Recommendations:
+- Apply compost enriched with Trichoderma.
+- Use bio-fungicides based on Bacillus species.
+- Solarize soil during summer months.
+
+🛡️ Prevention Measures:
+- Avoid waterlogging.
+- Rotate with non-crucifer crops for 3 years.
+- Add organic matter to improve soil health.
+
+✅ Best Practices:
+- Scout root systems of stunted plants.
+- Train farmers on sanitation practices.
+- Encourage raised-bed farming.
+
+⚠️ Priority Level: Medium
+
+-----------------------------------------
+
+📌 Suggestion Title:
+Integrated Club Root Control
+
+💊 Treatment Recommendations:
+- Apply calcium cyanamide before planting.
+- Remove and destroy infested plant roots.
+- Balance fertilization with adequate boron.
+
+🛡️ Prevention Measures:
+- Sanitize tools before field entry.
+- Avoid planting in known infested areas.
+- Use resistant or tolerant hybrids.
+
+✅ Best Practices:
+- Record field history for club root presence.
+- Implement long crop rotations.
+- Train farmers on resistant cultivars.
+
+⚠️ Priority Level: High
+
+=========================================
+🦠 Downy Mildew (Cauliflower)
+=========================================
+
+📌 Suggestion Title:
+Integrated Downy Mildew Control for Cauliflower
+
+💊 Treatment Recommendations:
+- Apply fungicides like metalaxyl-M or mancozeb at early signs of infection.
+- Remove and destroy infected plant debris immediately.
+- Improve air circulation to reduce leaf wetness.
+
+🛡️ Prevention Measures:
+- Use resistant cauliflower varieties, if available.
+- Avoid overhead irrigation.
+- Rotate crops with non-host species (minimum 2-3 year rotation).
+
+✅ Best Practices:
+- Monitor crops regularly, especially during cool, moist weather.
+- Ensure proper plant spacing to reduce humidity around leaves.
+
+⚠️ Priority Level: High
+
+-----------------------------------------
+
+📌 Suggestion Title:
+Organic Downy Mildew Suppression in Cauliflower
+
+💊 Treatment Recommendations:
+- Use neem oil or bio-fungicides at early disease detection.
+- Apply compost tea sprays weekly during wet weather.
+- Remove and bury severely infected plants.
+
+🛡️ Prevention Measures:
+- Select mildew-resistant hybrid varieties.
+- Improve soil health with organic matter.
+- Avoid excessive nighttime irrigation.
+
+✅ Best Practices:
+- Scout fields twice weekly during humid conditions.
+- Train farmers in early disease recognition.
+- Encourage intercropping to disrupt pathogen spread.
+
+⚠️ Priority Level: Medium
+
+-----------------------------------------
+
+📌 Suggestion Title:
+Rotational Fungicide Strategy for Downy Mildew
+
+💊 Treatment Recommendations:
+- Alternate between systemic and contact fungicides to avoid resistance.
+- Apply protective sprays before rainfall events.
+- Clean irrigation channels to prevent pathogen buildup.
+
+🛡️ Prevention Measures:
+- Maintain strict sanitation practices.
+- Rotate crops for at least 2 years.
+- Avoid planting in low-lying, waterlogged areas.
+
+✅ Best Practices:
+- Use predictive weather-based disease models.
+- Keep detailed spray records.
+- Engage in group spraying programs with neighboring farms.
+
+⚠️ Priority Level: High
+
+=========================================
+🐛 Cabbage Aphid Colony (Cauliflower)
+=========================================
+
+📌 Suggestion Title:
+Biological Aphid Control
+
+💊 Treatment Recommendations:
+- Release ladybird beetles in infested fields.
+- Encourage natural parasitoids like wasps.
+- Spray neem oil as a safe bio-control.
+
+🛡️ Prevention Measures:
+- Avoid excessive nitrogen fertilizer.
+- Maintain balanced crop nutrition.
+- Intercrop with pest-repelling plants.
+
+✅ Best Practices:
+- Monitor aphid colonies weekly.
+- Train farmers on natural enemies.
+- Use insect-proof nets for nurseries.
+
+⚠️ Priority Level: Medium
+
+-----------------------------------------
+
+📌 Suggestion Title:
+Chemical Aphid Management
+
+💊 Treatment Recommendations:
+- Apply selective insecticides like imidacloprid when infestations are high.
+- Avoid repeated use of the same chemical group.
+- Use soap sprays for light infestations.
+
+🛡️ Prevention Measures:
+- Plant trap crops nearby.
+- Remove weeds that harbor aphids.
+- Avoid overcrowding plants.
+
+✅ Best Practices:
+- Record insecticide use to avoid resistance.
+- Apply sprays in early morning or evening.
+- Educate farmers on safe handling.
+
+⚠️ Priority Level: High
+
+-----------------------------------------
+
+📌 Suggestion Title:
+Integrated Aphid Control
+
+💊 Treatment Recommendations:
+- Combine biological and chemical approaches.
+- Spray systemic insecticides only as last resort.
+- Use bio-pesticides regularly.
+
+🛡️ Prevention Measures:
+- Maintain crop hygiene and weed control.
+- Avoid continuous cauliflower cropping.
+- Practice proper irrigation.
+
+✅ Best Practices:
+- Train farmers on IPM (Integrated Pest Management).
+- Encourage scouting before spraying.
+- Collaborate with extension workers.
+
+⚠️ Priority Level: High
+
+=========================================
+⭕ Ring Spot (Cauliflower)
+=========================================
+
+📌 Suggestion Title:
+Fungicide Protection for Ring Spot
+
+💊 Treatment Recommendations:
+- Spray chlorothalonil or mancozeb at early symptoms.
+- Remove infected plant residues.
+- Apply systemic fungicides during humid weather.
+
+🛡️ Prevention Measures:
+- Use resistant varieties where available.
+- Rotate crops with cereals or legumes.
+- Improve field drainage.
+
+✅ Best Practices:
+- Scout after rainfall events.
+- Train farmers on early spotting.
+- Keep spray equipment calibrated.
+
+⚠️ Priority Level: High
+
+-----------------------------------------
+
+📌 Suggestion Title:
+Organic Ring Spot Suppression
+
+💊 Treatment Recommendations:
+- Apply compost teas to leaves regularly.
+- Use copper-based bio-fungicides.
+- Remove lower infected leaves.
+
+🛡️ Prevention Measures:
+- Avoid dense planting.
+- Enhance soil with organic matter.
+- Rotate with non-host crops.
+
+✅ Best Practices:
+- Encourage use of disease-free seeds.
+- Train on field sanitation.
+- Promote intercropping systems.
+
+⚠️ Priority Level: Medium
+
+-----------------------------------------
+
+📌 Suggestion Title:
+Integrated Ring Spot Management
+
+💊 Treatment Recommendations:
+- Alternate fungicides to avoid resistance.
+- Destroy volunteer crucifer plants nearby.
+- Improve canopy ventilation.
+
+🛡️ Prevention Measures:
+- Avoid over-irrigation.
+- Apply balanced fertilizers.
+- Maintain weed-free fields.
+
+✅ Best Practices:
+- Keep spray logs.
+- Inspect fields twice weekly.
+- Educate farmers on integrated methods.
+
+⚠️ Priority Level: High
+
+=========================================
+🖤 Black Rot (Cauliflower)
+=========================================
+
+📌 Suggestion Title:
+Copper-Based Protection Against Black Rot
+
+💊 Treatment Recommendations:
+- Apply copper-based bactericides as a preventive spray.
+- Remove and destroy infected plants promptly.
+- Ensure balanced fertilization.
+
+🛡️ Prevention Measures:
+- Use hot-water-treated or certified seeds.
+- Rotate crucifer crops every 3–4 years.
+- Avoid working in wet fields.
+
+✅ Best Practices:
+- Sanitize pruning and harvesting tools.
+- Maintain proper drainage.
+- Educate farmers about symptom recognition.
+
+⚠️ Priority Level: High
+
+-----------------------------------------
+
+📌 Suggestion Title:
+Nutrient-Linked Black Rot Reduction
+
+💊 Treatment Recommendations:
+- Apply foliar sprays of micronutrients like zinc and boron.
+- Use biostimulants to improve plant immunity.
+- Reduce plant stress during growth stages.
+
+🛡️ Prevention Measures:
+- Eliminate cruciferous weeds near fields.
+- Practice clean seed sourcing.
+- Rotate with cereals or legumes.
+
+✅ Best Practices:
+- Train farmers in field scouting.
+- Keep proper spacing to reduce leaf wetness.
+- Monitor soil fertility regularly.
+
+⚠️ Priority Level: Medium
+
+-----------------------------------------
+
+📌 Suggestion Title:
+Integrated Sanitation Approach for Black Rot
+
+💊 Treatment Recommendations:
+- Remove and burn all crop residues after harvest.
+- Apply protective copper sprays before rainy periods.
+- Use resistant cauliflower varieties when available.
+
+🛡️ Prevention Measures:
+- Avoid excessive nitrogen fertilizers.
+- Do not reuse contaminated irrigation water.
+- Practice wide crop rotation.
+
+✅ Best Practices:
+- Inspect fields weekly.
+- Keep equipment disinfected.
+- Collaborate with local extension officers.
+
+⚠️ Priority Level: High
+
+=========================================
+🧫 Bacterial Spot Rot (Cauliflower)
+=========================================
+
+📌 Suggestion Title:
+Copper Sprays for Bacterial Spot Rot
+
+💊 Treatment Recommendations:
+- Apply copper sprays at early symptom appearance.
+- Avoid repeated applications of the same bactericide.
+- Improve soil drainage to reduce standing water.
+
+🛡️ Prevention Measures:
+- Avoid overhead irrigation to reduce leaf wetness.
+- Do not plant in previously infected fields.
+- Rotate crops with cereals or legumes.
+
+✅ Best Practices:
+- Regularly inspect heads for signs of soft rot.
+- Ensure plant spacing for better airflow.
+- Remove infected plants immediately.
+
+⚠️ Priority Level: Medium
+
+-----------------------------------------
+
+📌 Suggestion Title:
+Biological Control of Bacterial Spot Rot
+
+💊 Treatment Recommendations:
+- Apply Bacillus subtilis-based bio-sprays.
+- Use Trichoderma-enriched compost for soil health.
+- Introduce phyllosphere-protecting microbes.
+
+🛡️ Prevention Measures:
+- Avoid using contaminated water for irrigation.
+- Sanitize tools before moving across fields.
+- Limit farm operations during wet weather.
+
+✅ Best Practices:
+- Train farmers in biological application techniques.
+- Maintain field hygiene consistently.
+- Encourage use of disease forecasting systems.
+
+⚠️ Priority Level: Medium
+
+-----------------------------------------
+
+📌 Suggestion Title:
+Integrated Bacterial Spot Rot Management
+
+💊 Treatment Recommendations:
+- Remove infected heads promptly to reduce field inoculum.
+- Apply copper sprays in alternation with bio-products.
+- Treat harvested crops with hot water dips.
+
+🛡️ Prevention Measures:
+- Practice strict crop rotation.
+- Avoid mechanical damage during cultivation/harvest.
+- Store produce in clean, ventilated facilities.
+
+✅ Best Practices:
+- Regular monitoring during storage phase.
+- Engage farmers in collective disease reporting.
+- Use resistant hybrids where available.
+
+⚠️ Priority Level: High
+
+=========================================
+✅ No Disease (Cauliflower)
+=========================================
+
+📌 Suggestion Title:
+Preventive Crop Health Management
+
+💊 Treatment Recommendations:
+- Apply balanced fertilizers regularly.
+- Keep irrigation schedules optimal.
+- Remove any suspicious plants early.
+
+🛡️ Prevention Measures:
+- Use certified seeds only.
+- Rotate crops for long-term protection.
+- Maintain proper field sanitation.
+
+✅ Best Practices:
+- Train farmers in disease recognition.
+- Keep detailed crop health records.
+- Encourage farmer field schools.
+
+⚠️ Priority Level: Medium
+
+-----------------------------------------
+
+📌 Suggestion Title:
+Soil & Nutrition Enhancement
+
+💊 Treatment Recommendations:
+- Add compost and organic matter to soil.
+- Apply micronutrient foliar sprays as boosters.
+- Encourage biological soil treatments.
+
+🛡️ Prevention Measures:
+- Avoid monocropping.
+- Maintain soil pH balance.
+- Use disease-free seedlings.
+
+✅ Best Practices:
+- Encourage testing soil before planting.
+- Conduct seasonal farmer training.
+- Keep irrigation clean.
+
+⚠️ Priority Level: Low
+
+-----------------------------------------
+
+📌 Suggestion Title:
+Resistant Varieties & Rotation
+
+💊 Treatment Recommendations:
+- Plant resistant cauliflower varieties.
+- Practice intercropping with legumes.
+- Apply preventive bio-fungicide sprays.
+
+🛡️ Prevention Measures:
+- Avoid planting in disease-prone fields.
+- Ensure wide rotations with cereals.
+- Sanitize farm tools before reuse.
+
+✅ Best Practices:
+- Educate farmers on prevention importance.
+- Collaborate with local extension officers.
+- Maintain farm hygiene consistently.
+
+⚠️ Priority Level: Medium
